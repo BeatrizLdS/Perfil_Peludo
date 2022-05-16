@@ -2,25 +2,20 @@
 //  Teste.swift
 //  Perfil_Peludo
 //
-//  Created by Beatriz Leonel da Silva on 13/05/22.
+//  Created by Beatriz Leonel da Silva on 16/05/22.
 //
 
 import SwiftUI
 
 struct Teste: View {
     var body: some View {
-        NavigationView {
-            Text("Hello, SwiftUI!")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        HStack {
-                            Text("Title").font(.headline)
-                            Image(systemName: "sun.min.fill")
-                        }
-                    }
-                }
-        }
+        List{
+            Section {
+                Label("Sun", systemImage: "sun.max")
+                Label("Cloud", systemImage: "cloud")
+                Label("Rain", systemImage: "cloud.rain")
+            }
+        }.listStyle(PlainListStyle())
     }
 }
 

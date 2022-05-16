@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct AllPetsView: View {
+    
+    @State var pets : [Pet] = PetsList.myPets
+    
     var body: some View {
         NavigationView {
-            List (0..<2){ item in
-                PetPreviewView().contextMenu{
-                   DeleteButtonView()
+            List{
+                ForEach (pets) { item in
+                    PetPreviewView().contextMenu{
+                       DeleteButtonView()
+                    }
                 }
+                .onDelete(perform: delete)
             }
             .navigationBarTitle("Voltar")
             .navigationBarTitleDisplayMode(.inline)
@@ -30,7 +36,16 @@ struct AllPetsView: View {
             }
         }
     }
+    
+    func delete (at offsets: IndexSet) {
+        print(pets)
+        pets.remove(atOffsets: offsets)
+        print(pets)
+    }
+    
 }
+
+
 
 struct PetPreviewView : View {
     var body: some View{
