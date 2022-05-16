@@ -33,7 +33,7 @@ struct AllPetsView: View {
     private var ListOfPets : some View {
         List{
             ForEach ($pets) { $pet in
-                NavigationLink(destination: PetPerfilView(),
+                NavigationLink(destination: PetPerfilView(pet: pet),
                                label: {
                                 HStack(spacing: 15){
                                     Image(systemName: "person.fill")
@@ -66,7 +66,6 @@ struct AllPetsView: View {
                 Label("Adicionar Pet", systemImage: "plus.circle.fill")
             }
             .labelStyle(.titleAndIcon)
-            .font(.system(.title2).weight(.semibold))
             
             Spacer()
         }

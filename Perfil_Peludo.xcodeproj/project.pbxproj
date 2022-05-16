@@ -102,11 +102,8 @@
 		FFA1572D282E935400E2ECED /* Perfil_Peludo */ = {
 			isa = PBXGroup;
 			children = (
-				FFA15730282E935400E2ECED /* AllPetsView.swift */,
-				FFA1572E282E935400E2ECED /* Perfil_PeludoApp.swift */,
-				FFF94E8D2832668C00D342D2 /* AddPetView.swift */,
-				FF219E44282E9C1A00612D9C /* PetPerfilView.swift */,
-				FFF94E8F28326BDD00D342D2 /* Pets.swift */,
+				FFB2DAD82832D87A00439FB9 /* Utilities */,
+				FFB2DAD72832D85100439FB9 /* Views */,
 				FFF94E9128328B6200D342D2 /* Teste.swift */,
 				FFA15732282E935400E2ECED /* Assets.xcassets */,
 				FFA15734282E935400E2ECED /* Preview Content */,
@@ -137,6 +134,25 @@
 				FFA1574B282E935400E2ECED /* Perfil_PeludoUITestsLaunchTests.swift */,
 			);
 			path = Perfil_PeludoUITests;
+			sourceTree = "<group>";
+		};
+		FFB2DAD72832D85100439FB9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FFF94E8F28326BDD00D342D2 /* Pets.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FFB2DAD82832D87A00439FB9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FFA1572E282E935400E2ECED /* Perfil_PeludoApp.swift */,
+				FFA15730282E935400E2ECED /* AllPetsView.swift */,
+				FF219E44282E9C1A00612D9C /* PetPerfilView.swift */,
+				FFF94E8D2832668C00D342D2 /* AddPetView.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
