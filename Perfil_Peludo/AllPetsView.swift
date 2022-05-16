@@ -13,75 +13,52 @@ struct AllPetsView: View {
     
     var body: some View {
         NavigationView {
-            List{
-                ForEach (pets) { item in
-                    PetPreviewView().contextMenu{
-                       DeleteButtonView()
-                    }
-                }
-                .onDelete(perform: delete)
-            }
-            .navigationBarTitle("Voltar")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Text("Perfil Peludo").font(.headline)
-                        Image(systemName: "pawprint.fill")
-                    }
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    AddPetButton()
-                }
-            }
-        }
-    }
-    
-    func delete (at offsets: IndexSet) {
-        print(pets)
-        pets.remove(atOffsets: offsets)
-        print(pets)
-    }
-    
-}
-
-
-
-struct PetPreviewView : View {
-    var body: some View{
-        NavigationLink(destination: PetPerfilView(),
-                       label: {
-                        HStack(spacing: 15){
-                            Image(systemName: "person.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .foregroundColor(.white)
-                                .frame(height: 60)
-                                .padding(10)
-                                .background(Color.black)
-                                .cornerRadius(15)
-                            VStack (alignment: .leading){
-                                Text("Nome do animal")
-                                Text("Tipo")
-                                Text("Idade")
-                            }
+            ListOfPets
+                .navigationBarTitle("Voltar")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("Perfil Peludo").font(.headline)
+                            Image(systemName: "pawprint.fill")
                         }
-                        })
-    }
-}
-
-struct DeleteButtonView : View {
-    var body: some View {
-        Button (role: .destructive) {
-            print("Excluir um Pet")
-        } label: {
-            Label("Excluir", systemImage: "trash")
+                    }
+                    ToolbarItem(placement: .bottomBar) {
+                        AddPetButton
+                    }
+                }
         }
     }
-}
+    
+    private var ListOfPets : some View {
+        List{
+            ForEach ($pets) { $pet in
+                NavigationLink(destination: PetPerfilView(),
+                               label: {
+                                HStack(spacing: 15){
+                                    Image(systemName: "person.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .foregroundColor(.white)
+                                        .frame(height: 60)
+                                        .padding(10)
+                                        .background(Color.black)
+                                        .cornerRadius(15)
+                                    VStack (alignment: .leading){
+                                        Text(pet.name)
+                                        Text(pet.typeOfAnimal)
+                                        Text("Tem IDADE aninhos")
+                                    }
+                                }
+                })
+            }
+            .onDelete(perform: delete)
+        }
+    }
+    
 
-struct AddPetButton : View {
-    var body: some View{
+    
+    private var AddPetButton : some View {
         HStack{
             Button{
                 print("Adicionar novo animal")
@@ -94,6 +71,13 @@ struct AddPetButton : View {
             Spacer()
         }
     }
+    
+    func delete (at offsets: IndexSet) {
+        print(pets)
+        pets.remove(atOffsets: offsets)
+        print(pets)
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
