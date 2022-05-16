@@ -11,7 +11,7 @@ import SwiftUI
 struct Perfil_PeludoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AllPetsView()
         }
     }
 }

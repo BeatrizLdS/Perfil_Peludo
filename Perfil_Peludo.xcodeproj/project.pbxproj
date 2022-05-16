@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF219E45282E9C1A00612D9C /* PetPerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF219E44282E9C1A00612D9C /* PetPerfilView.swift */; };
+		FF6EFEE4282F18B900DCEF3C /* Teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6EFEE3282F18B900DCEF3C /* Teste.swift */; };
 		FFA1572F282E935400E2ECED /* Perfil_PeludoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1572E282E935400E2ECED /* Perfil_PeludoApp.swift */; };
-		FFA15731282E935400E2ECED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA15730282E935400E2ECED /* ContentView.swift */; };
+		FFA15731282E935400E2ECED /* AllPetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA15730282E935400E2ECED /* AllPetsView.swift */; };
 		FFA15733282E935400E2ECED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFA15732282E935400E2ECED /* Assets.xcassets */; };
 		FFA15736282E935400E2ECED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFA15735282E935400E2ECED /* Preview Assets.xcassets */; };
 		FFA15740282E935400E2ECED /* Perfil_PeludoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1573F282E935400E2ECED /* Perfil_PeludoTests.swift */; };
 		FFA1574A282E935400E2ECED /* Perfil_PeludoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA15749282E935400E2ECED /* Perfil_PeludoUITests.swift */; };
 		FFA1574C282E935400E2ECED /* Perfil_PeludoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1574B282E935400E2ECED /* Perfil_PeludoUITestsLaunchTests.swift */; };
+		FFF94E8E2832668C00D342D2 /* AddPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF94E8D2832668C00D342D2 /* AddPetView.swift */; };
+		FFF94E9028326BDD00D342D2 /* Pets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF94E8F28326BDD00D342D2 /* Pets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF219E44282E9C1A00612D9C /* PetPerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPerfilView.swift; sourceTree = "<group>"; };
+		FF6EFEE3282F18B900DCEF3C /* Teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teste.swift; sourceTree = "<group>"; };
 		FFA1572B282E935400E2ECED /* Perfil_Peludo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perfil_Peludo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA1572E282E935400E2ECED /* Perfil_PeludoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfil_PeludoApp.swift; sourceTree = "<group>"; };
-		FFA15730282E935400E2ECED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FFA15730282E935400E2ECED /* AllPetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetsView.swift; sourceTree = "<group>"; };
 		FFA15732282E935400E2ECED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFA15735282E935400E2ECED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FFA1573B282E935400E2ECED /* Perfil_PeludoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Perfil_PeludoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +50,8 @@
 		FFA15745282E935400E2ECED /* Perfil_PeludoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Perfil_PeludoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA15749282E935400E2ECED /* Perfil_PeludoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfil_PeludoUITests.swift; sourceTree = "<group>"; };
 		FFA1574B282E935400E2ECED /* Perfil_PeludoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfil_PeludoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FFF94E8D2832668C00D342D2 /* AddPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetView.swift; sourceTree = "<group>"; };
+		FFF94E8F28326BDD00D342D2 /* Pets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +102,12 @@
 		FFA1572D282E935400E2ECED /* Perfil_Peludo */ = {
 			isa = PBXGroup;
 			children = (
+				FFA15730282E935400E2ECED /* AllPetsView.swift */,
 				FFA1572E282E935400E2ECED /* Perfil_PeludoApp.swift */,
-				FFA15730282E935400E2ECED /* ContentView.swift */,
+				FFF94E8D2832668C00D342D2 /* AddPetView.swift */,
+				FF219E44282E9C1A00612D9C /* PetPerfilView.swift */,
+				FFF94E8F28326BDD00D342D2 /* Pets.swift */,
+				FF6EFEE3282F18B900DCEF3C /* Teste.swift */,
 				FFA15732282E935400E2ECED /* Assets.xcassets */,
 				FFA15734282E935400E2ECED /* Preview Content */,
 			);
@@ -257,8 +269,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFA15731282E935400E2ECED /* ContentView.swift in Sources */,
+				FFA15731282E935400E2ECED /* AllPetsView.swift in Sources */,
+				FF219E45282E9C1A00612D9C /* PetPerfilView.swift in Sources */,
 				FFA1572F282E935400E2ECED /* Perfil_PeludoApp.swift in Sources */,
+				FF6EFEE4282F18B900DCEF3C /* Teste.swift in Sources */,
+				FFF94E8E2832668C00D342D2 /* AddPetView.swift in Sources */,
+				FFF94E9028326BDD00D342D2 /* Pets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +433,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Perfil_Peludo/Preview Content\"";
+				DEVELOPMENT_TEAM = NTS86MKTBV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -445,6 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Perfil_Peludo/Preview Content\"";
+				DEVELOPMENT_TEAM = NTS86MKTBV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
