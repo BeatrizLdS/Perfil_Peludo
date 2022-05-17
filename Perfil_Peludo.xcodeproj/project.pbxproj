@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FF219E45282E9C1A00612D9C /* PetPerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF219E44282E9C1A00612D9C /* PetPerfilView.swift */; };
+		FF6292162833EB800091C678 /* PetTemperament.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6292152833EB800091C678 /* PetTemperament.swift */; };
 		FFA1572F282E935400E2ECED /* Perfil_PeludoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1572E282E935400E2ECED /* Perfil_PeludoApp.swift */; };
 		FFA15731282E935400E2ECED /* AllPetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA15730282E935400E2ECED /* AllPetsView.swift */; };
 		FFA15733282E935400E2ECED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFA15732282E935400E2ECED /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		FF219E44282E9C1A00612D9C /* PetPerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPerfilView.swift; sourceTree = "<group>"; };
+		FF6292152833EB800091C678 /* PetTemperament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTemperament.swift; sourceTree = "<group>"; };
 		FFA1572B282E935400E2ECED /* Perfil_Peludo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perfil_Peludo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA1572E282E935400E2ECED /* Perfil_PeludoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfil_PeludoApp.swift; sourceTree = "<group>"; };
 		FFA15730282E935400E2ECED /* AllPetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetsView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				FFF94E8F28326BDD00D342D2 /* Pets.swift */,
+				FF6292152833EB800091C678 /* PetTemperament.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				FFF94E8E2832668C00D342D2 /* AddPetView.swift in Sources */,
 				FFF94E9028326BDD00D342D2 /* Pets.swift in Sources */,
 				FFF94E9228328B6200D342D2 /* Teste.swift in Sources */,
+				FF6292162833EB800091C678 /* PetTemperament.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
