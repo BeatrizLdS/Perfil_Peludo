@@ -9,7 +9,9 @@ import SwiftUI
 
 struct AddPetView: View {
     var body: some View {
-        Text("Tela de adicionar pet")
+        NavigationView{
+            Text("Tela para adicionar novo pet")
+        }
     }
 }
 

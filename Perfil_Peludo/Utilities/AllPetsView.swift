@@ -9,23 +9,22 @@ import SwiftUI
 
 struct AllPetsView: View {
     
-    @State var pets : [Pet] = PetsList.myPets
+    @State private var pets = PetsList.myPets
+    @State private var showAddPetView = false
     
     var body: some View {
         NavigationView {
             ListOfPets
-                .navigationBarTitle("Voltar")
-                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitle("Meus Pets")
+                .navigationBarTitleDisplayMode(.automatic)
                 .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        HStack {
-                            Text("Perfil Peludo").font(.headline)
-                            Image(systemName: "pawprint.fill")
-                        }
-                    }
-                    ToolbarItem(placement: .bottomBar) {
+    
+                    ToolbarItem(placement: .automatic) {
                         AddPetButton
                     }
+                }
+                .sheet(isPresented: $showAddPetView){
+                    AllPetsView()
                 }
         }
     }
@@ -46,8 +45,11 @@ struct AllPetsView: View {
                                         .cornerRadius(15)
                                     VStack (alignment: .leading){
                                         Text(pet.name)
+                                            .font(.headline)
                                         Text(pet.typeOfAnimal)
-                                        Text("Tem IDADE aninhos")
+                                            .font(.subheadline)
+                                        Text("IDADE!!")
+                                            .font(.subheadline)
                                     }
                                 }
                 })
@@ -59,16 +61,14 @@ struct AllPetsView: View {
 
     
     private var AddPetButton : some View {
-        HStack{
-            Button{
-                print("Adicionar novo animal")
-            }label: {
-                Label("Adicionar Pet", systemImage: "plus.circle.fill")
-            }
-            .labelStyle(.titleAndIcon)
-            
-            Spacer()
+        Button{
+            print("Adicionar novo animal")
+            showAddPetView = true
+        }label: {
+            Label("Adicionar Pet", systemImage: "plus")
+                .imageScale(.large)
         }
+        .labelStyle(.iconOnly)
     }
     
     func delete (at offsets: IndexSet) {
