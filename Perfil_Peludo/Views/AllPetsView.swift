@@ -62,7 +62,7 @@ struct AllPetsView: View {
                                     VStack (alignment: .leading){
                                         Text(pet.name)
                                             .font(.headline)
-                                        Text(pet.typeOfAnimal)
+                                        Text(pet.petType)
                                             .font(.subheadline)
                                         Text("IDADE!!")
                                             .font(.subheadline)

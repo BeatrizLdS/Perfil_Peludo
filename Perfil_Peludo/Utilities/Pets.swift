@@ -13,26 +13,22 @@ struct Pet : Identifiable{
     
     var id = UUID()
     var name : String
-    var typeOfAnimal : String
     var birthday : Date
+    var petType : String
     
     var favoriteFoods : [StringWithID]
     var prohibedFoods : [StringWithID]
     
     var favoriteToys : [StringWithID]
     
-    var placesToWalk : [StringWithID]
-    
     var behaviorWithOtherAnimals : PetTemperament
     var behaviorWithOtherHumans : PetTemperament
     
-    var imageSelected : Bool
     var image : UIImage
+    var hasImage : Bool
     
-
 }
 
 struct PetsList {
-    
     static var myPets : [Pet] = []
 }

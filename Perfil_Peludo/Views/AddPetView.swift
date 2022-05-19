@@ -11,34 +11,36 @@ struct AddPetView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    @State private var showingActionSheet = false
+    @State private var newPet : Pet = Pet(name: "", birthday: Date(), petType: "Cachorro",
+                                          favoriteFoods: [], prohibedFoods: [], favoriteToys: [],
+                                          behaviorWithOtherAnimals: .calm, behaviorWithOtherHumans: .calm,
+                                          image: UIImage(), hasImage: false)
     
-    @State private var changeProfileImage = false
+    @State private var showingActionSheet = false
     @State private var showImagePicker = false
-    @State private var image = UIImage()
-    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
     @Binding var myPetsList : [Pet]
     
-    @State private var newPet : Pet = Pet(name: "", typeOfAnimal: "", birthday: Date(), favoriteFoods: [], prohibedFoods: [], favoriteToys: [], placesToWalk: [], behaviorWithOtherAnimals: .calm, behaviorWithOtherHumans: .calm, imageSelected : false, image :  UIImage())
 
     
     var body: some View {
         NavigationView{
             
             Form {
+                
                 ProfileImageView
                 
-                
+
                 Section("O meu Pet"){
                     TextField("Nome", text: $newPet.name)
                     DatePicker("Aniversário", selection: $newPet.birthday, displayedComponents: .date)
-                    Picker("Tipo de pet", selection: $newPet.typeOfAnimal) {
-                        ForEach(["Cachorro", "Gato"], id: \.self){item in
+                    Picker("Tipo de pet", selection: $newPet.petType) {
+                        ForEach(["Cachorro", "Gato", "Roedor", "Coelho", "Porquinho", "Arara", "Papagaio"], id: \.self) { item in
                             Text(item)
                         }
                     }
                 }
+
                 
                 Section("Comportamento"){
                     Picker("Com estranhos", selection: $newPet.behaviorWithOtherHumans) {
@@ -53,53 +55,17 @@ struct AddPetView: View {
                     }
                 }
                 
-                Section("Brinquedos favoritos"){
-                    
-                    addStringWithIDButton(list: $newPet.favoriteToys,
-                                          addText: "Adicionar Brinquedo")
-                    
-                    List {
-                        ForEach($newPet.favoriteToys) { $toy in
-                            TextField("brinquedo", text: $toy.string)
-                        }
-                    }
-                }
+                addStringSectionView(list: $newPet.favoriteToys,
+                                     title: "Brinquedor Favoritos",
+                                     objectname: "brinquedo")
                 
-                Section("Comidas Favoritas"){
-                    
-                    addStringWithIDButton(list: $newPet.favoriteFoods,
-                                          addText: "Adicionar comida favorita")
-                    
-                    List {
-                        ForEach($newPet.favoriteFoods) { $food in
-                            TextField("comida", text: $food.string)
-                        }
-                    }
-                }
+                addStringSectionView(list: $newPet.favoriteFoods,
+                                     title: "Comidas Favoritas",
+                                     objectname: "comida")
                 
-                Section("Comidas Proibidas"){
-                    
-                    addStringWithIDButton(list: $newPet.prohibedFoods,
-                                          addText: "Adicionar comida proibida")
-                    
-                    List {
-                        ForEach($newPet.prohibedFoods) { $food in
-                            TextField("comida", text: $food.string)
-                        }
-                    }
-                }
-                
-                Section("Lugares para passear"){
-                    
-                    addStringWithIDButton(list: $newPet.placesToWalk,
-                                          addText: "Adicionar local")
-                    
-                    List {
-                        ForEach($newPet.placesToWalk) { $food in
-                            TextField("local", text: $food.string)
-                        }
-                    }
-                }
+                addStringSectionView(list: $newPet.prohibedFoods,
+                                     title: "Comidas Proibidas",
+                                     objectname: "comida")
                 
             }
             .toolbar{
@@ -113,7 +79,9 @@ struct AddPetView: View {
             }
         }
         .sheet(isPresented: $showImagePicker){
-            ImagePicker(image: $image, sourceType: sourceType)
+            ImagePicker(image: $newPet.image,
+                        changeImage: $newPet.hasImage,
+                        sourceType: UIImagePickerController.SourceType.photoLibrary)
         }
     }
     
@@ -121,9 +89,9 @@ struct AddPetView: View {
         VStack{
             HStack{
                 Spacer()
-                if changeProfileImage {
+                if newPet.hasImage {
                     
-                    Image(uiImage: image)
+                    Image(uiImage: newPet.image)
                         .resizable()
                         .frame(width: 120, height: 120)
                         .clipShape(Circle())
@@ -168,7 +136,6 @@ struct AddPetView: View {
                             actions: {
                                 Button ("Biblioteca") {
                                     showImagePicker = true
-                                    changeProfileImage = true
                                 }
                                 Button ("Cancel", role: .cancel) {}
                             })
@@ -180,7 +147,7 @@ struct AddPetView: View {
             myPetsList.insert(newPet, at: 0)
             dismiss()
         } label: {
-            Label("Salvar Pet", systemImage: "square.and.arrow.down")
+            Text("Salvar")
         }
     }
     
@@ -194,29 +161,45 @@ struct AddPetView: View {
     
 }
 
-struct addStringWithIDButton :  View {
+struct addStringSectionView : View {
     
     @Binding  var list : [StringWithID]
-    @State var addText : String
+    @FocusState private var focusedField : UUID?
     
-    var body: some View{
-        HStack {
-            Spacer()
-            Button{
-                list.insert(StringWithID(string: ""), at: 0)
-            }label: {
-                Label(addText, systemImage: "plus")
-                    .labelStyle(.iconOnly)
+    var title : String
+    var objectname : String
+    
+    var body: some View {
+        Section(title){
+            
+            List {
+                ForEach($list) { $object in
+                    TextField(objectname, text: $object.string)
+                        .focused($focusedField, equals: object.id)
+                }
             }
+            
+            HStack {
+                Button{
+                    list.insert(StringWithID(string: ""), at: 0)
+                    focusedField = list.first!.id
+                }label: {
+                    Label("Adicionar " + objectname, systemImage: "plus")
+                        .labelStyle(.iconOnly)
+                }
+                Spacer()
+            }
+            
+            
         }
     }
 }
 
+
 //struct AddPetView_Previews: PreviewProvider {
 //
-//    @State private var listPets = PetsList.myPets
-//
+//    
 //    static var previews: some View {
-//        AddPetView(myPetsList: $listPets)
+//        AddPetView(myPetsList: PetsList.myPets)
 //    }
 //}
