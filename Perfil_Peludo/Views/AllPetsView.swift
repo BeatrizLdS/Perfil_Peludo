@@ -51,21 +51,26 @@ struct AllPetsView: View {
                 NavigationLink(destination: PetProfileView(pet: pet),
                                label: {
                                 HStack(spacing: 15){
-                                    Image(systemName: "person.fill")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .foregroundColor(.white)
-                                        .frame(height: 60)
-                                        .padding(10)
-                                        .background(Color.black)
-                                        .cornerRadius(15)
+                                    
+                                    if pet.hasImage {
+                                        ProfileImageView(pet: pet)
+                                    } else{
+                                        ProfileDefaultImageView()
+                                    }
+                                    
                                     VStack (alignment: .leading){
                                         Text(pet.name)
                                             .font(.headline)
                                         Text(pet.petType)
                                             .font(.subheadline)
-                                        Text("IDADE!!")
-                                            .font(.subheadline)
+                                        
+                                        
+                                        let age = pet.age
+                                        if age > 1{
+                                            Text("\(age) anos")
+                                        } else {
+                                            Text("\(age) ano")
+                                        }
                                     }
                                 }
                 })
@@ -88,9 +93,7 @@ struct AllPetsView: View {
     }
     
     func delete (at offsets: IndexSet) {
-        print(pets)
         pets.remove(atOffsets: offsets)
-        print(pets)
     }
     
 }

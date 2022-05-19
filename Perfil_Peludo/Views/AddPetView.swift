@@ -24,8 +24,8 @@ struct AddPetView: View {
 
     
     var body: some View {
-        NavigationView{
             
+        NavigationView{
             Form {
                 
                 ProfileImageView
@@ -55,15 +55,15 @@ struct AddPetView: View {
                     }
                 }
                 
-                addStringSectionView(list: $newPet.favoriteToys,
-                                     title: "Brinquedor Favoritos",
+                AddStringSectionView(list: $newPet.favoriteToys,
+                                     title: "Brinquedos Favoritos",
                                      objectname: "brinquedo")
                 
-                addStringSectionView(list: $newPet.favoriteFoods,
+                AddStringSectionView(list: $newPet.favoriteFoods,
                                      title: "Comidas Favoritas",
                                      objectname: "comida")
                 
-                addStringSectionView(list: $newPet.prohibedFoods,
+                AddStringSectionView(list: $newPet.prohibedFoods,
                                      title: "Comidas Proibidas",
                                      objectname: "comida")
                 
@@ -75,8 +75,9 @@ struct AddPetView: View {
                 ToolbarItem(placement: .confirmationAction){
                     saveButtonView
                 }
-            
+                
             }
+        
         }
         .sheet(isPresented: $showImagePicker){
             ImagePicker(image: $newPet.image,
@@ -142,6 +143,14 @@ struct AddPetView: View {
     
     }
     
+    var cancelButtonView : some View {
+        Button{
+            dismiss()
+        } label: {
+            Text("Cancelar")
+        }
+    }
+    
     var saveButtonView : some View {
         Button{
             myPetsList.insert(newPet, at: 0)
@@ -151,48 +160,7 @@ struct AddPetView: View {
         }
     }
     
-    var cancelButtonView : some View {
-        Button{
-            dismiss()
-        } label: {
-            Text("Cancelar")
-        }
-    }
     
-}
-
-struct addStringSectionView : View {
-    
-    @Binding  var list : [StringWithID]
-    @FocusState private var focusedField : UUID?
-    
-    var title : String
-    var objectname : String
-    
-    var body: some View {
-        Section(title){
-            
-            List {
-                ForEach($list) { $object in
-                    TextField(objectname, text: $object.string)
-                        .focused($focusedField, equals: object.id)
-                }
-            }
-            
-            HStack {
-                Button{
-                    list.insert(StringWithID(string: ""), at: 0)
-                    focusedField = list.first!.id
-                }label: {
-                    Label("Adicionar " + objectname, systemImage: "plus")
-                        .labelStyle(.iconOnly)
-                }
-                Spacer()
-            }
-            
-            
-        }
-    }
 }
 
 

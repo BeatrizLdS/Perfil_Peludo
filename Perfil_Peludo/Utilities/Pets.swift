@@ -27,6 +27,16 @@ struct Pet : Identifiable{
     var image : UIImage
     var hasImage : Bool
     
+    var age : Int {
+        
+        let calendar = Calendar.current
+
+        let ageComponents = calendar.dateComponents([.year], from: birthday, to: Date())
+        let age = ageComponents.year!
+        
+        return age
+    }
+    
 }
 
 struct PetsList {

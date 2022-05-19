@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FF0AC29D2835E94E00E03FFA /* StringWithID.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0AC29C2835E94E00E03FFA /* StringWithID.swift */; };
 		FF219E45282E9C1A00612D9C /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF219E44282E9C1A00612D9C /* PetProfileView.swift */; };
+		FF2927DD2836834B00FEBF5B /* AddStringSectionVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2927DC2836834B00FEBF5B /* AddStringSectionVIew.swift */; };
+		FF371F062836DB8B0026AADC /* ProfileImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF371F052836DB8B0026AADC /* ProfileImageViews.swift */; };
 		FF486401283532E900986F1D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF486400283532E900986F1D /* ImagePicker.swift */; };
 		FF6292162833EB800091C678 /* PetTemperament.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6292152833EB800091C678 /* PetTemperament.swift */; };
 		FFA1572F282E935400E2ECED /* Perfil_PeludoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1572E282E935400E2ECED /* Perfil_PeludoApp.swift */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		FF0AC29C2835E94E00E03FFA /* StringWithID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringWithID.swift; sourceTree = "<group>"; };
 		FF219E44282E9C1A00612D9C /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
+		FF2927DC2836834B00FEBF5B /* AddStringSectionVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStringSectionVIew.swift; sourceTree = "<group>"; };
+		FF371F052836DB8B0026AADC /* ProfileImageViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViews.swift; sourceTree = "<group>"; };
 		FF486400283532E900986F1D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FF6292152833EB800091C678 /* PetTemperament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTemperament.swift; sourceTree = "<group>"; };
 		FFA1572B282E935400E2ECED /* Perfil_Peludo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perfil_Peludo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +153,8 @@
 				FFA15730282E935400E2ECED /* AllPetsView.swift */,
 				FF219E44282E9C1A00612D9C /* PetProfileView.swift */,
 				FFF94E8D2832668C00D342D2 /* AddPetView.swift */,
+				FF2927DC2836834B00FEBF5B /* AddStringSectionVIew.swift */,
+				FF371F052836DB8B0026AADC /* ProfileImageViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,6 +307,8 @@
 				FFF94E8E2832668C00D342D2 /* AddPetView.swift in Sources */,
 				FFF94E9028326BDD00D342D2 /* Pets.swift in Sources */,
 				FF486401283532E900986F1D /* ImagePicker.swift in Sources */,
+				FF2927DD2836834B00FEBF5B /* AddStringSectionVIew.swift in Sources */,
+				FF371F062836DB8B0026AADC /* ProfileImageViews.swift in Sources */,
 				FFF94E9228328B6200D342D2 /* Teste.swift in Sources */,
 				FF6292162833EB800091C678 /* PetTemperament.swift in Sources */,
 			);

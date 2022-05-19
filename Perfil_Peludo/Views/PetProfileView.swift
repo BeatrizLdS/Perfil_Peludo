@@ -13,34 +13,69 @@ struct PetProfileView: View {
     @State private var showingActionSheet: Bool = false
     
     var body: some View {
-        NavigationView{
-            VStack{
-                ProfilePetImageView(imageName: "person.fill")
-                Text(pet.name)
-                    .fontWeight(.semibold)
-                
-                Spacer()
+        VStack{
+            if pet.hasImage{
+                ProfileImageView(pet: pet)
+            }else{
+                ProfileDefaultImageView()
             }
+                
+            Text(pet.name)
+                .font(.title2)
+                .fontWeight(.semibold)
+                
+            Text(pet.petType)
+                
+                
+            let age = pet.age
+            if age > 1{
+                Text("\(age) anos")
+            } else {
+                Text("\(age) ano")
+            }
+                
+                
+            List{
+                
+            behaviorSectionView
+                
+            listOfThingsProfileView(title: "Brinquedos favoritos", list: pet.favoriteToys)
+                
+            listOfThingsProfileView(title: "Comidas favoritas", list: pet.favoriteFoods)
+                
+            listOfThingsProfileView(title: "Comidas proibidas", list: pet.prohibedFoods)
+                
+            }.listStyle(.sidebar)
+        }
+        
+    }
+    
+    private var behaviorSectionView : some View {
+        Section("Comportamento"){
+            Text(pet.behaviorWithOtherAnimals.rawValue + " com animais")
+            Text(pet.behaviorWithOtherHumans.rawValue + " com estranhos")
         }
     }
     
+    
+    
 }
+    
+struct listOfThingsProfileView : View {
+    
+    var title : String
+    var list : [StringWithID]
+    
+    var body: some View{
 
-struct ProfilePetImageView : View {
-    
-    var imageName : String
-    
-    var body: some View {
-        Image(systemName: imageName)
-            .resizable()
-            .scaledToFit()
-            .foregroundColor(.white)
-            .frame(height: 100)
-            .padding(10)
-            .background(Color.black)
-            .cornerRadius(15)
+        Section (title){
+            ForEach(list) { object in
+                Text(object.string)
+                    
+            }
+        }
+
     }
-    
 }
 
 struct PetPerfil_Previews: PreviewProvider {
