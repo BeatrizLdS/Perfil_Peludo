@@ -14,25 +14,41 @@ struct AllPetsView: View {
     
     var body: some View {
         NavigationView {
-            ListOfPets
-                .navigationBarTitle("Meus Pets")
-                .navigationBarTitleDisplayMode(.automatic)
-                .toolbar {
-    
-                    ToolbarItem(placement: .automatic) {
-                        AddPetButton
+            if pets.isEmpty {
+                Text("Nenhum pet adcionado")
+                    .foregroundColor(.secondary)
+                    .navigationBarTitle("Meus Pets")
+                    .navigationBarTitleDisplayMode(.automatic)
+                    .toolbar {
+                        
+                        ToolbarItem(placement: .automatic) {
+                            AddPetButton
+                        }
                     }
-                }
-                .sheet(isPresented: $showAddPetView){
-                    AllPetsView()
-                }
+                    .sheet(isPresented: $showAddPetView){
+                        AddPetView(myPetsList: $pets)
+                    }
+            } else {
+                ListOfPets
+                    .navigationBarTitle("Meus Pets")
+                    .navigationBarTitleDisplayMode(.automatic)
+                    .toolbar {
+                        
+                        ToolbarItem(placement: .automatic) {
+                            AddPetButton
+                        }
+                    }
+                    .sheet(isPresented: $showAddPetView){
+                        AddPetView(myPetsList: $pets)
+                    }
+            }
         }
     }
     
     private var ListOfPets : some View {
         List{
             ForEach ($pets) { $pet in
-                NavigationLink(destination: PetPerfilView(pet: pet),
+                NavigationLink(destination: PetProfileView(pet: pet),
                                label: {
                                 HStack(spacing: 15){
                                     Image(systemName: "person.fill")

@@ -8,14 +8,27 @@
 import SwiftUI
 
 struct Teste: View {
+    
     var body: some View {
-        List{
-            Section {
-                Label("Sun", systemImage: "sun.max")
-                Label("Cloud", systemImage: "cloud")
-                Label("Rain", systemImage: "cloud.rain")
+        
+        Form {
+            Section(header: Text("Test")) {
+                VStack {
+                    HStack {
+                        Button("Button 1") {
+                            print("Button 1")
+                        }
+                        Spacer()
+                        Button("Button 2") {
+                            print("Button 2")
+                        }
+                    }
+
+                    Text("Some Text")
+                        .font(.headline)
+                }
             }
-        }.listStyle(PlainListStyle())
+        }
     }
 }
 

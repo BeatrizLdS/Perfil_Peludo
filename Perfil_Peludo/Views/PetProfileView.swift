@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PetPerfilView: View {
+struct PetProfileView: View {
     
     @State var pet : Pet
     @State private var showingActionSheet: Bool = false
@@ -19,30 +19,9 @@ struct PetPerfilView: View {
                 Text(pet.name)
                     .fontWeight(.semibold)
                 
-                ChangePicButtonView
-                
                 Spacer()
             }
         }
-    }
-    
-    private var ChangePicButtonView : some View {
-        Button{
-            showingActionSheet = true
-        }label: {
-            Label("Trocar Imagem", systemImage: "camera.fill")
-        }
-        .labelStyle(.iconOnly)
-        .buttonStyle(.bordered)
-        .confirmationDialog(Text("Escolhet foto"),
-                            isPresented: $showingActionSheet,
-                            titleVisibility: .visible,
-                            actions: {
-                                Button ("Câmera") {}
-                                Button ("Biblioteca") {}
-                                Button ("Cancel", role: .cancel) {}
-                            })
-        
     }
     
 }
@@ -67,8 +46,8 @@ struct ProfilePetImageView : View {
 struct PetPerfil_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PetPerfilView(pet: PetsList.myPets.first!)
-            PetPerfilView(pet: PetsList.myPets.first!)
+            PetProfileView(pet: PetsList.myPets.first!)
+            PetProfileView(pet: PetsList.myPets.first!)
                 .preferredColorScheme(.dark)
         }
     }
