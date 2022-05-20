@@ -48,6 +48,7 @@ struct PetProfileView: View {
                 
             }.listStyle(.sidebar)
         }
+        .navigationBarTitleDisplayMode(.inline)
         
     }
     

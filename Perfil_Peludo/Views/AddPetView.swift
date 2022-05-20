@@ -26,9 +26,12 @@ struct AddPetView: View {
     var body: some View {
             
         NavigationView{
+            VStack {
+                ImageView
+                
+            
             Form {
                 
-                ImageView
                 
 
                 Section("O meu Pet"){
@@ -83,6 +86,7 @@ struct AddPetView: View {
             ImagePicker(image: $newPet.image,
                         changeImage: $newPet.hasImage,
                         sourceType: UIImagePickerController.SourceType.photoLibrary)
+        }
         }
     }
     
