@@ -28,7 +28,7 @@ struct AddPetView: View {
         NavigationView{
             Form {
                 
-                ProfileImageView
+                ImageView
                 
 
                 Section("O meu Pet"){
@@ -86,27 +86,15 @@ struct AddPetView: View {
         }
     }
     
-    var ProfileImageView : some View {
+    var ImageView : some View {
         VStack{
             HStack{
                 Spacer()
                 if newPet.hasImage {
-                    
-                    Image(uiImage: newPet.image)
-                        .resizable()
-                        .frame(width: 120, height: 120)
-                        .clipShape(Circle())
+                    ProfileImageView(pet: newPet)
                     
                 } else {
-                    
-                    Image(systemName: "pawprint.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 120, height: 120)
-                        .padding()
-                        .clipShape(Circle())
-                    
-                    
+                    ProfileDefaultImageView()
                 }
                 Spacer()
             }

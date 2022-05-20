@@ -14,6 +14,7 @@ struct PetProfileView: View {
     
     var body: some View {
         VStack{
+            
             if pet.hasImage{
                 ProfileImageView(pet: pet)
             }else{
@@ -78,12 +79,12 @@ struct listOfThingsProfileView : View {
     }
 }
 
-struct PetPerfil_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            PetProfileView(pet: PetsList.myPets.first!)
-            PetProfileView(pet: PetsList.myPets.first!)
-                .preferredColorScheme(.dark)
-        }
-    }
-}
+//struct PetPerfil_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            PetProfileView(pet: PetsList.myPets.first!)
+//            PetProfileView(pet: PetsList.myPets.first!)
+//                .preferredColorScheme(.dark)
+//        }
+//    }
+//}

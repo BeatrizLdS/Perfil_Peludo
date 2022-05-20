@@ -98,12 +98,12 @@ struct AllPetsView: View {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            AllPetsView()
-            AllPetsView()
-                .preferredColorScheme(.dark)
-        }
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            AllPetsView()
+//            AllPetsView()
+//                .preferredColorScheme(.dark)
+//        }
+//    }
+//}
